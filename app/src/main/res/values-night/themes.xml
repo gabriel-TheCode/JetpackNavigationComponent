@@ -13,4 +13,11 @@
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="Theme.JetPackNavigationComponent.Starting" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/black</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/vector_animated_drawable</item>
+        <item name="postSplashScreenTheme">@style/Theme.JetPackNavigationComponent</item>
+        <item name="windowSplashScreenAnimationDuration">1000</item>
+    </style>
 </resources>
