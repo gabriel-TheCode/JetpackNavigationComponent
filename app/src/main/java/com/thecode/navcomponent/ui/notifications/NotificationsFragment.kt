@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.thecode.navcomponent.NavigationManager
 import com.thecode.navcomponent.databinding.FragmentNotificationsBinding
 
 class NotificationsFragment : Fragment() {
@@ -32,16 +33,15 @@ class NotificationsFragment : Fragment() {
         notificationsViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
+        binding.openButton.setOnClickListener {
+            NavigationManager().goToCheckoutActivity(requireActivity())
+        }
         return root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.apply {
-            openButton.setOnClickListener {
 
-            }
-        }
     }
 
     override fun onDestroyView() {

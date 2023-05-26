@@ -1,8 +1,11 @@
 package com.thecode.navcomponent
 
+import android.app.Activity
+import android.content.Intent
 import android.view.View
 import androidx.core.os.bundleOf
 import androidx.navigation.Navigation
+import com.thecode.navcomponent.ui.checkout.CheckoutActivity
 
 
 class NavigationManager {
@@ -15,6 +18,12 @@ class NavigationManager {
     fun goToDashboardDetails(view: View, itemId: String) {
         val bundle = bundleOf(ITEM_ID to itemId)
         Navigation.findNavController(view).navigate(R.id.action_navigation_dashboard_to_navigation_details, bundle)
+    }
+
+    fun goToCheckoutActivity(activity: Activity) {
+        val intent = Intent(activity, CheckoutActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        activity.startActivity(intent)
     }
 
 
