@@ -17,13 +17,21 @@ class NavigationManager {
 
     fun goToDashboardDetails(view: View, itemId: String) {
         val bundle = bundleOf(ITEM_ID to itemId)
-        Navigation.findNavController(view).navigate(R.id.action_navigation_dashboard_to_navigation_details, bundle)
+        Navigation.findNavController(view).navigate(R.id.action_dashboardFragment_to_dashboardDetailsFragment, bundle)
     }
 
     fun goToCheckoutActivity(activity: Activity) {
         val intent = Intent(activity, CheckoutActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         activity.startActivity(intent)
+    }
+
+    fun goToPlaceOrder(view: View) {
+        Navigation.findNavController(view).navigate(R.id.action_orderFragment_to_uploadFragment)
+    }
+
+    fun goToSelectStore(view: View) {
+        Navigation.findNavController(view).navigate(R.id.action_orderFragment_to_selectStoreFragment)
     }
 
 

@@ -21,7 +21,7 @@
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_dashboard">
         <action
-            android:id="@+id/action_navigation_dashboard_to_navigation_details"
+            android:id="@+id/action_dashboardFragment_to_dashboardDetailsFragment"
             app:destination="@id/navigation_details" />
     </fragment>
 
@@ -60,14 +60,5 @@
             app:argType="string"
             app:nullable="true" />
     </fragment>
-    <activity
-        android:id="@+id/mainActivity"
-        android:name="com.thecode.navcomponent.MainActivity"
-        android:label="MainActivity" />
-    <activity
-        android:id="@+id/checkoutActivity"
-        android:name="com.thecode.navcomponent.ui.checkout.CheckoutActivity"
-        android:label="activity_checkout"
-        tools:layout="@layout/activity_checkout" />
 
 </navigation>
