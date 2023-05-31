@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.thecode.navcomponent.NavigationManager
 import com.thecode.navcomponent.databinding.FragmentGalleryDetailsBinding
 
 class GalleryDetailsFragment : Fragment() {
@@ -37,6 +38,10 @@ class GalleryDetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this)[GalleryDetailsViewModel::class.java]
+
+        binding.openButton.setOnClickListener {
+            NavigationManager().goToGalleryDialog(binding.root)
+        }
     }
 
     companion object {

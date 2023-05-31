@@ -4,7 +4,10 @@ import android.app.Activity
 import android.content.Intent
 import android.view.View
 import androidx.core.os.bundleOf
+import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.FragmentManager
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import com.thecode.navcomponent.ui.checkout.CheckoutActivity
 
 
@@ -33,6 +36,17 @@ class NavigationManager {
     fun goToSelectStore(view: View) {
         Navigation.findNavController(view).navigate(R.id.action_orderFragment_to_selectStoreFragment)
     }
+
+    fun goToGalleryDialog(view: View) {
+        Navigation.findNavController(view).navigate(
+            R.id.action_navigation_gallery_details_to_galleryDialogFragment)
+    }
+
+    fun goToGalleryDialog2(fragment: DialogFragment) {
+        fragment.findNavController().navigate(
+            R.id.action_galleryDialogFragment_to_galleryDialog2Fragment)
+    }
+
 
 
     companion object {
