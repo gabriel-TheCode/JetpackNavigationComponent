@@ -14,10 +14,10 @@
             android:id="@+id/action_galleryFragment_to_galleryDetailsFragment"
             app:destination="@id/navigation_gallery_details" />
         <action
-            android:id="@+id/action_navigation_home_to_navigation_notifications"
+            android:id="@+id/action_home_to_notifications"
             app:destination="@id/navigation_notifications"
-            app:popUpToInclusive="true"
-            app:popUpTo="@id/navigation_notifications"/>
+            app:popUpTo="@id/navigation_home"
+            app:popUpToSaveState="true"/>
 
     </fragment>
 
@@ -66,9 +66,10 @@
             app:argType="string"
             app:nullable="true" />
         <action
-            android:id="@+id/action_navigation_gallery_details_to_galleryDialogFragment"
+            android:id="@+id/action_gallery_details_to_galleryDialogFragment"
             app:destination="@id/galleryDialogFragment" />
     </fragment>
+
     <dialog
         android:id="@+id/galleryDialogFragment"
         android:name="com.thecode.navcomponent.ui.home.gallery.gallerydetails.GalleryDialogFragment"
@@ -78,6 +79,7 @@
             android:id="@+id/action_galleryDialogFragment_to_galleryDialog2Fragment"
             app:destination="@id/galleryDialog2Fragment" />
     </dialog>
+
     <dialog
         android:id="@+id/galleryDialog2Fragment"
         android:name="com.thecode.navcomponent.ui.home.gallery.gallerydetails.GalleryDialog2Fragment"

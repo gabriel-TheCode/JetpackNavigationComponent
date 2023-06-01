@@ -72,8 +72,6 @@ class GalleryDialogFragment : DialogFragment() {
             }
             openButton.setOnClickListener {
                 NavigationManager().goToGalleryDialog2(this@GalleryDialogFragment)
-//                findNavController().navigate(
-//                    R.id.action_galleryDialogFragment_to_galleryDialog2Fragment)
             }
         }
     }

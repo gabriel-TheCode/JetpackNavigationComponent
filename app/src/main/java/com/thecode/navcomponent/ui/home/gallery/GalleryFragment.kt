@@ -17,9 +17,6 @@ class GalleryFragment : Fragment() {
 
     private var _binding: FragmentGalleryBinding? = null
 
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     private lateinit var viewModel: GalleryViewModel
@@ -27,17 +24,8 @@ class GalleryFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentGalleryBinding.inflate(inflater, container, false)
-        val root: View = binding.root
-
-        binding.openButton.setOnClickListener {
-            //val bundle = bundleOf(ALBUM_ID to "Gallery Details")
-            //Navigation.findNavController(root).navigate(R.id.action_galleryFragment_to_galleryDetailsFragment, bundle)
-            NavigationManager().goToGalleryDetails(root, "Gallery Details")
-
-
-        }
 
         return binding.root
     }
@@ -45,7 +33,9 @@ class GalleryFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this)[GalleryViewModel::class.java]
+
+        binding.openButton.setOnClickListener {
+            NavigationManager().goToGalleryDetails(binding.root, "Gallery Details")
+        }
     }
-
-
 }

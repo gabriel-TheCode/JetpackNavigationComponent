@@ -6,8 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import com.thecode.navcomponent.NavigationManager
 import com.thecode.navcomponent.databinding.FragmentOrderBinding
+import com.thecode.navcomponent.ui.home.gallery.GalleryViewModel
 
 class OrderFragment : Fragment() {
 
@@ -26,16 +28,19 @@ class OrderFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentOrderBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        viewModel = ViewModelProvider(this)[OrderViewModel::class.java]
+
         binding.apply {
-            openButton.setOnClickListener {
-                NavigationManager().goToPlaceOrder(root)
+            placeOrderButton.setOnClickListener {
+                NavigationManager().goToUpload(root)
+                Toast.makeText(requireContext(), "Hey", Toast.LENGTH_SHORT).show()
             }
 
             selectStoreButton.setOnClickListener {

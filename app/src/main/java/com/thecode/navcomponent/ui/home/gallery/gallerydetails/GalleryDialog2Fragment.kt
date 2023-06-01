@@ -5,14 +5,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
-import androidx.navigation.findNavController
+import com.thecode.navcomponent.NavigationManager
 import com.thecode.navcomponent.R
-import com.thecode.navcomponent.databinding.FragmentGalleryDialogBinding
+import com.thecode.navcomponent.databinding.FragmentGalleryDialog2Binding
 
 
 class GalleryDialog2Fragment : DialogFragment() {
 
-    private var _binding: FragmentGalleryDialogBinding? = null
+    private var _binding: FragmentGalleryDialog2Binding? = null
 
     private val binding get() = _binding!!
 
@@ -45,7 +45,7 @@ class GalleryDialog2Fragment : DialogFragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentGalleryDialogBinding.inflate(inflater, container, false)
+        _binding = FragmentGalleryDialog2Binding.inflate(inflater, container, false)
 
         return binding.root
     }
@@ -57,16 +57,8 @@ class GalleryDialog2Fragment : DialogFragment() {
                 dismissDialog()
             }
             openButton.setOnClickListener {
-                //Close all dialog and go To Notifications
-                //findNavController().popBackStack(R.id.navigation_gallery_details, true)
-                val navController =
-                    requireActivity().findNavController(R.id.nav_host_fragment_activity_main)
-                //navController.navigate(R.id.navigation_home)
-                navController.popBackStack(R.id.navigation_gallery_details, true)
-                navController.navigate(R.id.navigation_notifications)
-
+                NavigationManager().goToNotifications(requireActivity())
             }
         }
     }
-
 }
