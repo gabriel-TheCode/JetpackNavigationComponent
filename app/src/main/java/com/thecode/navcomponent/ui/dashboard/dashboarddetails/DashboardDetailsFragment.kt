@@ -14,9 +14,6 @@ class DashboardDetailsFragment : Fragment() {
     private var itemId: String? = null
     private var _binding: FragmentDashboardDetailsBinding? = null
 
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
 
@@ -31,13 +28,7 @@ class DashboardDetailsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // Inflate the layout for this fragment
         _binding = FragmentDashboardDetailsBinding.inflate(inflater, container, false)
-
-        binding.openButton.setOnClickListener {
-            //val bundle = bundleOf("itemId" to itemId)
-            //Navigation.findNavController(root).navigate(R.id.action_navigation_dashboard_to_navigation_details, bundle)
-        }
 
         return binding.root
     }
@@ -54,5 +45,10 @@ class DashboardDetailsFragment : Fragment() {
                 val bundle = bundleOf(ITEM_ID to itemId)
                 arguments = bundle
             }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

@@ -29,7 +29,7 @@ class OrderFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentOrderBinding.inflate(layoutInflater, container, false)
+        _binding = FragmentOrderBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -40,7 +40,6 @@ class OrderFragment : Fragment() {
         binding.apply {
             placeOrderButton.setOnClickListener {
                 NavigationManager().goToUpload(root)
-                Toast.makeText(requireContext(), "Hey", Toast.LENGTH_SHORT).show()
             }
 
             selectStoreButton.setOnClickListener {

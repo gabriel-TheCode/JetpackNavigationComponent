@@ -26,10 +26,4 @@ class CheckoutActivity : AppCompatActivity() {
         navController = navHostFragment.findNavController()
     }
 
-    override fun onStart() {
-        super.onStart()
-        //navController.navigate(R.id.action_checkout_to_selectStoreFragment)
-    }
-
-
 }

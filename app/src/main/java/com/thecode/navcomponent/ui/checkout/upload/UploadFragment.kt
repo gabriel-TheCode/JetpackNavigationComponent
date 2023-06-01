@@ -6,14 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.thecode.navcomponent.databinding.FragmentUploadBinding
 
 class UploadFragment : Fragment() {
-
-    companion object {
-        fun newInstance() = UploadFragment()
-    }
 
     private var _binding: FragmentUploadBinding? = null
 
@@ -32,9 +28,18 @@ class UploadFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         viewModel = ViewModelProvider(this)[UploadViewModel::class.java]
-        binding.cancelButton.apply {
-            findNavController().popBackStack()
+
+        binding.apply {
+            cancelButton.setOnClickListener {
+                findNavController().popBackStack()
+            }
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

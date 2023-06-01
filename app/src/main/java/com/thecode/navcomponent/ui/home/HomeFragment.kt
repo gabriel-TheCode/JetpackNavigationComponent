@@ -37,7 +37,6 @@ class HomeFragment : Fragment() {
 
         mViewPager = binding.viewPager
         mViewPager.adapter = GalleryViewPagerAdapter(requireActivity())
-        //TabLayoutMediator(binding.pageIndicator, mViewPager) { _, _ -> }.attach()
         mViewPager.isUserInputEnabled = false
         TabLayoutMediator(binding.tabLayout, mViewPager) { tab, position ->
             mViewPager.setCurrentItem(
