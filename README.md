@@ -4,4 +4,4 @@ Sample multi fragments project to test Jetpack Navigation Component (Interaction
 
 <img src="diagram.png"/>
 
-Image by Elye : 
+Image by [@elye_project](https://twitter.com/elye_project)
