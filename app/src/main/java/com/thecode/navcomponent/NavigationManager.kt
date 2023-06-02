@@ -60,7 +60,7 @@ class NavigationManager {
         navController.popBackStack(
             R.id.navigation_gallery_details,
             true
-        ) // Go back to Gallery Details and it (inclusive), so it's navigate to Gallery, can also be done like //navController.popBackStack(R.id.navigation_gallery, false)
+        ) // Go back to Gallery Details and close it (inclusive), so it's navigate to Gallery, can also be done like //navController.popBackStack(R.id.navigation_gallery, false)
         navController.navigate(R.id.action_home_to_notifications) // Move to Notifications
     }
 
